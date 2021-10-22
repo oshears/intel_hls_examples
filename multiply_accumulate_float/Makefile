@@ -1,4 +1,4 @@
-SOURCE_FILES  := adder.cpp
+SOURCE_FILES  := multiply_accumulate_float.cpp
 override HLS_CXX_FLAGS := $(HLS_CXX_FLAGS) 
 CXX := i++
 DEVICE := CycloneV

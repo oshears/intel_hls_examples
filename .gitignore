@@ -1,3 +1,4 @@
 *.prj
 .vscode
 test-*
+transcript
