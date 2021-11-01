@@ -1,8 +1,7 @@
-SOURCE_FILES  := dfr.cpp
+SOURCE_FILES  := mm_adder.cpp
 override HLS_CXX_FLAGS := $(HLS_CXX_FLAGS) 
 CXX := i++
-DEVICE := 5CEBA4F23C8
-# DEVICE := CycloneV
+DEVICE := CycloneV
 override CXXFLAGS := $(CXXFLAGS)
 VERBOSE := 1
 
