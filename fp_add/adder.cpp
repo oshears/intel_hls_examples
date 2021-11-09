@@ -2,18 +2,20 @@
 //  SPDX-License-Identifier: MIT                                          
 
 #include "HLS/hls.h"
+#include "HLS/math.h"
+#include "HLS/hls_float.h"
+#include "HLS/hls_float_math.h"
+
 #include <stdio.h>
+
+#include "adder.h"
 
 using namespace ihc;
 
-hls_avalon_agent_component 
-component unsigned int adder(
-  hls_avalon_agent_register_argument unsigned int a, 
-  hls_avalon_agent_register_argument unsigned int b
-  ){
-  
-  return a + b;
 
+
+component FPhalf adder(FPhalf a, FPhalf b) {
+  return a + b;
 }
 
 int main() {
@@ -33,13 +35,17 @@ int main() {
 //     }
 //   }
 
-    unsigned int result = 0;
-    unsigned int a = 1;
-    unsigned int b = 2;
+    FPhalf result = FPhalf(0);
+    FPhalf a = 1;
+    FPhalf b = 2;
 
-    // ihc_hls_enqueue(&result, &adder, a, b);
-    // ihc_hls_component_run_all(adder);
-    result = adder(a,b);
+    for(int i = 0; i < 3; i++)
+      results[i] = a;
+
+  
+
+    ihc_hls_enqueue(&result, &adder, a, b);
+    ihc_hls_component_run_all(adder);
 
 
     if(result != 3) pass = false;
